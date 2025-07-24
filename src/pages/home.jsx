@@ -4,9 +4,10 @@ import { FaHandshake, FaLightbulb, FaRocket } from 'react-icons/fa';
 import Footer from '../components/footer.jsx';
 import LiveStats from '../components/livestats.jsx';
 import { AppContext } from '../context/AppContext.jsx';
+import { Link } from 'react-router-dom';
 
 function Home() {
-    const {token} = useContext(AppContext);
+    const { token } = useContext(AppContext);
     return (
         <>
             <section className="sm:py-20  sm:px-6 p-6 bg-gray-900 text-white">
@@ -22,15 +23,17 @@ function Home() {
 
                     {/* CTA Buttons */}
                     <div className="flex justify-center gap-4 mt-8">
-                        
-                        <a
-                            href="/login" className={`px-6 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition ${token ? 'pointer-events-none' : ''}`}>
+
+                        <Link
+                            to="/login"
+                            className="px-6 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition">
                             Get Started
-                        </a>
-                        <a
-                            href="/about" className="px-6 py-3 border border-orange-500 text-orange-500 font-semibold rounded hover:bg-orange-600 hover:text-white transition">
-                            Learn More
-                        </a>
+                        </Link>
+                        <Link
+                            to="/about"
+                            className="px-6 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition">
+                            Learn more
+                        </Link>
                     </div>
                 </div>
 
@@ -60,10 +63,10 @@ function Home() {
                         </p>
                     </div>
                 </div>
-                
+
             </section>
-            <LiveStats/>
-            <Faqs/>
+            <LiveStats />
+            <Faqs />
             <Footer />
         </>
     );

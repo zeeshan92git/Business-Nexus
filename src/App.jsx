@@ -7,6 +7,7 @@ import About from "./pages/about.jsx";
 import Dashboard from "./pages/dashboard.jsx";
 import Profile from "./pages/profile.jsx";
 import { ToastContainer } from 'react-toastify';
+
 function App() {
   return (
     <>
