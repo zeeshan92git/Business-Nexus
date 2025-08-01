@@ -8,9 +8,9 @@ const About = () => {
       <section id="about" className="py-20 px-6 text-white">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
 
-          {/* Icon / Image Section */}
+          {/*  Image Section */}
           <div className="flex justify-center md:w-1/2">
-            <div className="bg-white rounded-full p-8 shadow-lg animate-pulse-slow">
+            <div className="bg-gray-200 rounded-full p-8 shadow-lg animate-fade-in">
               <PiHandshakeFill className="text-orange-500 text-7xl" />
             </div>
           </div>
