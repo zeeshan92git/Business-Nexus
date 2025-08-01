@@ -42,12 +42,12 @@ function Profile() {
   return (
     <>
       <div className="text-white max-w-5xl mx-auto mt-10 px-4">
-        <h2 className="text-3xl font-bold mb-4 text-center">Your Profile</h2>
+        <h2 className="text-3xl font-bold mb-4 text-center text-orange-500">Your Profile</h2>
 
         {!token &&
           <div className='flex flex-col sm:flex-row sm:items-center justify-center mb-4 gap-2 text-center sm:text-left'>
-            <p className='text-lg font-medium'> Sign in/up to continue you'r journey</p>
-            <span onClick={() => navigate("/login")} className='hover:underline cursor-pointer font-normal text-blue-600 hover:text-blue-500'>Click here</span>
+            <p className='text-lg font-medium'> Sign in/up to continue your journey</p>
+            <span onClick={() => navigate("/login")} className='hover:underline cursor-pointer italic font-normal text-blue-500 hover:text-blue-600'>Click here</span>
           </div>
         }
 
@@ -139,18 +139,19 @@ function Profile() {
                 <button onClick={() => setEditing(true)} className={`bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded font-semibold ${!token && 'pointer-events-none'} `}>Edit Profile</button>
               )}
             </div>
-            <Footer />
           </>
         ) :
           (
             <div className="flex mt-8 justify-center animate-fade-in">
-              <div className="bg-gray-200 rounded-full p-8 shadow-lg animate-pulse-slow">
-                <PiHandshakeFill className="text-orange-500 text-7xl" />
+              <div className="bg-orange-500 rounded-full p-8 shadow-lg animate-pulse-slow">
+                <PiHandshakeFill className="text-gray-200 text-7xl" />
               </div>
             </div>
           )
         }
+
       </div >
+      <Footer />
     </>
 
   )

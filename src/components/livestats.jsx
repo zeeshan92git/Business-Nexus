@@ -6,19 +6,19 @@ function LiveStats() {
   const stats = [
     {
       id: 1,
-      icon: <FaRocket className="text-4xl text-white" />,
+      icon: <FaRocket className="text-4xl text-orange-500" />,
       label: "Verified Startups",
       value: "120+",
     },
     {
       id: 2,
-      icon: <FaUserTie className="text-4xl text-white" />,
+      icon: <FaUserTie className="text-4xl text-orange-500" />,
       label: "Active Investors",
       value: "85+",
     },
     {
       id: 3,
-      icon: <FaHandshake className="text-4xl text-white" />,
+      icon: <FaHandshake className="text-4xl text-orange-500" />,
       label: "Connections Made",
       value: "250+",
     },
@@ -33,10 +33,10 @@ function LiveStats() {
 
       <div className="max-w-6xl mx-auto grid gap-8 grid-cols-1 sm:grid-cols-3 px-6">
         {stats.map((item) => (
-          <div key={item.id} className="bg-gray-700 shadow-inner shadow-gray-500 rounded-lg p-6 text-center border-t-4 border-b-4 border-orange-500">
+          <div key={item.id} className="bg-gray-700 shadow-inner shadow-gray-500 rounded-lg p-6 text-center border-t-4 border-b-4 border-orange-600">
             <div className="mb-6 flex justify-center">{item.icon}</div>
-            <h3 className="text-4xl font-bold text-orange-500 animate-fade">{item.value}</h3>  
-            <p className="text-gray-200 text-xl mt-4">{item.label}</p>
+            <h3 className="text-4xl font-bold text-white animate-fade">{item.value}</h3>  
+            <p className="text-orange-500 text-xl mt-4">{item.label}</p>
           </div>
         ))}
       </div>

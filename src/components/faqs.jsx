@@ -34,11 +34,11 @@ function Faqs() {
 
     return (
         <div className='sm:mx-24 mx-4 mb-4 sm:mt-4 mt-8'>
-            <h1 className='flex items-center justify-center gap-2 sm:text-3xl text-xl text-orange-500 font-bold sm:mb-4 mb-6'>Frequently Asked Questions <FcFaq className=''/></h1>
+            <h1 className='flex items-center justify-center gap-2 sm:text-3xl text-xl text-orange-600 font-bold sm:mb-4 mb-6'>Frequently Asked Questions <FcFaq className=''/></h1>
             {nexusQA.map((item, index) => (
                 <div key={index} className={`mb-6 ${index === nexusQA.length-1 ? 'border-0' : 'border-b border-gray-700'}  pb-4`}>
                     <div className='flex justify-between items-center cursor-pointer' onClick={() => handleToggle(index)}>
-                        <h3 className="text-xl font-semibold text-orange-600">{item.question}</h3>
+                        <h3 className="text-xl font-semibold text-orange-500">{item.question}</h3>
                         {openIndex === index ? (
                             <FaMinus className='text-orange-500' />
                         ) : (
@@ -46,7 +46,7 @@ function Faqs() {
                         )}
                     </div>
                     {openIndex === index && (
-                        <p className="text-gray-200 mt-2">{item.answer}</p>
+                        <p className="text-gray-200 mt-2 text-base">{item.answer}</p>
                     )}
                 </div>
             ))}
