@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { FaHome, FaSignOutAlt } from 'react-icons/fa';
 import { MdPeopleAlt } from "react-icons/md";
 import { ImProfile } from "react-icons/im";
+import { Link } from 'react-router-dom';
 import { RiSendPlaneFill } from "react-icons/ri";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
 import { IoPersonAdd } from "react-icons/io5";
@@ -70,9 +71,9 @@ function Dashboard() {
         {/* Sidebar */}
         <aside className="hidden md:flex flex-col w-64 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 text-white p-4 fixed h-screen">
           <nav className="flex flex-col gap-6 mt-4">
-            <a href="/profile" className="flex items-center text-xl gap-3 hover:text-orange-500">
+            <Link to="/profile" className="flex items-center text-xl gap-3 hover:text-orange-500">
               <ImProfile /> Profile
-            </a>
+            </Link>
             <button onClick={() => setActiveSection('connections')} className="flex items-center gap-3 text-xl hover:text-orange-500 text-left">
               <MdPeopleAlt />
               {profile.role === 'investor' ? 'Entrepreneurs' : 'Investors'}
@@ -88,10 +89,11 @@ function Dashboard() {
 
         {/* Main Content */}
         <main className="flex-1 md:ml-64 px-4 py-6 sm:pt-20 pt-24  w-full">
+
           {/* DASHBOARD */}
           {activeSection === 'dashboard' && (
             <div className="flex flex-col sm:flex-row gap-4">
-              <div onClick={() => { setActiveSection('connections');  }} className="bg-white text-black px-6 py-4 rounded-xl shadow-md hover:shadow-lg transition w-full sm:w-1/3 cursor-pointer">
+              <div onClick={() => { setActiveSection('connections'); }} className="bg-white text-black px-6 py-4 rounded-xl shadow-md hover:shadow-lg transition w-full sm:w-1/3 cursor-pointer">
                 <h1 className='text-[22px] text-orange-500 font-bold flex items-center gap-2 mb-1'>
                   <FaMoneyBillTrendUp className='text-2xl' />
                   {profile.role === 'investor' ? 'Interested Entrepreneurs' : 'Interested Investors'}
@@ -100,7 +102,7 @@ function Dashboard() {
                 <span className='text-3xl font-bold'>{collabs.length}</span>
               </div>
 
-              <div onClick={() => { setActiveSection('requests');  }} className="bg-white text-black px-6 py-4 rounded-xl shadow-md hover:shadow-lg transition w-full sm:w-1/3 cursor-pointer">
+              <div onClick={() => { setActiveSection('requests'); }} className="bg-white text-black px-6 py-4 rounded-xl shadow-md hover:shadow-lg transition w-full sm:w-1/3 cursor-pointer">
                 <h1 className='text-[22px] text-orange-500 font-bold flex items-center gap-2 mb-1'>
                   <IoPersonAdd />
                   Collab Requests
@@ -110,9 +112,9 @@ function Dashboard() {
               </div>
 
               <div className='bg-white text-black px-6 py-4 rounded-xl shadow-md hover:shadow-lg transition w-full sm:w-1/3 cursor-pointer'>
-                <a href="/profile" className="text-[22px] text-orange-500 font-bold flex items-center gap-2 mb-1">
+                <Link to="/profile" className='text-[22px] text-orange-500 font-bold flex items-center gap-2 mb-1'>
                   <CgProfile /> My Profile
-                </a>
+                </Link>
                 <p className='text-gray-500 mt-2'>Keep your profile updated</p>
                 <span className='text-2xl sm:text-3xl font-bold'>{profile.profileCompleted ? 'Completed' : 'Pending'}</span>
               </div>
@@ -165,7 +167,7 @@ function Dashboard() {
           )}
 
         </main>
-        
+
       </div>
     </div>
 

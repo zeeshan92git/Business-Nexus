@@ -26,7 +26,7 @@ function Home() {
 
                         <Link
                             to="/login"
-                            className="px-6 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition">
+                            className={`px-6 py-3 bg-orange-500 text-white font-semibold rounded hover:bg-orange-600 transition ${token ? 'pointer-events-none' : 'cursor-pointer'}`}>
                             Get Started
                         </Link>
                         <Link
