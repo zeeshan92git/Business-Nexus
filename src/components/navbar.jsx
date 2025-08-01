@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import { RiMenuUnfold3Line } from "react-icons/ri";
+import { RiMenuFold3Line } from "react-icons/ri";
 import { PiHandshakeFill } from "react-icons/pi";
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -71,8 +73,9 @@ function Navbar() {
 
                     {/* Hamburger Icon */}
                     <div className="md:hidden flex items-center">
-                        <button onClick={() => setIsOpen(true)} className="text-white hover:text-orange-300 focus:outline-none">
-                            <GiHamburgerMenu className="text-2xl text-orange-500" />
+                        <button className="text-white hover:text-orange-300 focus:outline-none">
+                            {isOpen ? (<RiMenuUnfold3Line onClick={() => setIsOpen(false)} className="text-2xl text-orange-500" />)
+                                : (<RiMenuFold3Line onClick={() => setIsOpen(true)} className="text-2xl text-orange-500" />)}
                         </button>
                     </div>
                 </div>
@@ -81,22 +84,16 @@ function Navbar() {
 
             {/* Right-side Slide-in Mobile Menu */}
             <div
-                className={`fixed top-16 right-0 h-64 w-60 bg-orange-500 rounded-l shadow-lg transform transition-transform duration-300 z-[999] 
+                className={`fixed top-16 right-0 h-fit w-60 pb-2 bg-orange-500/90 rounded-l-sm shadow-lg transform transition-transform duration-300 z-[999] 
                 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}>
 
-                <div className="flex justify-end p-2">
-                    <button onClick={() => setIsOpen(false)} className="text-black hover:text-red-500">
-                        <IoMdClose className="text-2xl" />
-                    </button>
-                </div>
-
                 <div className={`flex flex-col items-end text-[18px] ${token ? 'space-y-2' : 'space-y-4'}  px-6 mt-2`}>
-                    <a href="/" onClick={(e) => handleLinkClick(e, '/')} className="text-gray-800 hover:text-white font-semibold">Home</a>
-                    <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="text-gray-800 hover:text-white font-semibold">About</a>
-                    <a href="/dashboard" onClick={(e) => handleLinkClick(e, '/dashboard')} className="text-gray-800 hover:text-white font-semibold">Dashboard</a>
-                    <a href="/profile" onClick={(e) => handleLinkClick(e, '/profile')} className="text-gray-800 hover:text-white font-semibold">Profile</a>
+                    <a href="/" onClick={(e) => handleLinkClick(e, '/')} className="text-gray-800 hover:text-white font-bold">Home</a>
+                    <a href="/about" onClick={(e) => handleLinkClick(e, '/about')} className="text-gray-800 hover:text-white font-bold">About</a>
+                    <a href="/dashboard" onClick={(e) => handleLinkClick(e, '/dashboard')} className="text-gray-800 hover:text-white font-bold">Dashboard</a>
+                    <a href="/profile" onClick={(e) => handleLinkClick(e, '/profile')} className="text-gray-800 hover:text-white font-bold">Profile</a>
                     {token &&
-                        <button onClick={handleLogOut} className="text-gray-800 hover:text-white underline underline-offset-2  font-semibold">Log out</button>
+                        <button onClick={handleLogOut} className="text-gray-800 hover:text-white underline underline-offset-2  font-bold">Log out</button>
                     }
                 </div>
             </div>
